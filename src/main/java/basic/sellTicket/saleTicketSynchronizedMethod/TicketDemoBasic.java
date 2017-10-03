@@ -11,6 +11,7 @@ class Ticket implements Runnable{
     }
 
     //同步函数使用的锁是this
+    //静态同步函数使用的锁是Ticket.class 或者this.getClass()
     public synchronized void show(){
         //需要注意的是，使用obj这种机制，类似于是一种锁，进去了以后就把锁给上了，在里面sleep了也不会释放锁。只有出来了才会释放锁
         if(num>0){
