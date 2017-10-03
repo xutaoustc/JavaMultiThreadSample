@@ -14,11 +14,7 @@ class Ticket implements Runnable{
             //  \/  \/  \/  \/
             if(num>0){
                 //-->1  -->2   -->3  -->4
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                try { Thread.sleep(10); } catch (InterruptedException e) { e.printStackTrace(); }  // 强行模拟效果一波^_^
 
                 System.out.println(Thread.currentThread().getName() + "...sale...." + num--);
             }

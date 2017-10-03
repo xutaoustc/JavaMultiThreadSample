@@ -1,17 +1,13 @@
-package basic.sellTicket.saleTicketSynchronizedBlock;
+package basic.sellTicket.saleTicketSynchronizedBlockError;
 
 
 class Ticket implements Runnable{
     private int num = 1000;
-    Object obj = new Object();
 
     public void run(){
         while(true){
-            //同步代码块的格式
-            //synchronized(对象){
-            //      需要被同步的代码
-            // }
-            //需要注意的是，使用obj这种机制，类似于是一种锁，进去了以后就把锁给上了，在里面sleep了也不会释放锁。只有出来了才会释放锁
+            //注意这种同步的问题在于，多个线程使用的不是同一个锁
+            Object obj = new Object();
             synchronized (obj){
                 if(num>0){
                     //-->1  -->2   -->3  -->4
