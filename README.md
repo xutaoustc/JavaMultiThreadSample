@@ -14,7 +14,6 @@ CPU执行权：正在被CPU处理
 冻结状态释放执行资格的同时释放执行权
 就绪状态具备执行资格，但是不具备执行权，正在等待执行权
                   *
-                  *
                   *   
 创建-----start()----->就绪<-----------------sleep()时间到-----冻结
 |                 *   /\ <-----------------notify()-----------|       
@@ -36,7 +35,26 @@ CPU执行权：正在被CPU处理
 ---------stop()------>结束<------------------------------------|
 
 
-
+class Thread
+{
+    private Runnable r;
+    
+    Thread(){
+    }
+    
+    Thread(Runnable r){
+        this.r=r;
+    }
+    
+    public void run(){
+        if(r!=null)
+            r.run();
+    }
+    
+    public void start(){
+        run();
+    }
+}
 
 
 
