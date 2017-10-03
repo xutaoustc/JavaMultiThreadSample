@@ -1,4 +1,4 @@
-package basic.saleTicketBasic;
+package basic.sellTicket.saleTicketBasic;
 
 
 //出现线程安全的原因
