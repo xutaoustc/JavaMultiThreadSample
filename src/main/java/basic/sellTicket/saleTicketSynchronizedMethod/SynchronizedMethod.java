@@ -1,4 +1,4 @@
-package basic.synchronizedMethod;
+package basic.sellTicket.saleTicketSynchronizedMethod;
 
 
 class Bank{
