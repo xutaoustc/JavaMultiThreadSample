@@ -13,6 +13,7 @@ class Ticket implements Runnable{
             // }
             //需要注意的是，使用obj这种机制，类似于是一种锁，进去了以后就把锁给上了，在里面sleep了也不会释放锁。只有出来了才会释放锁。
             //synchronized类似于火车上的卫生间
+            //synchronized执行过程中，cpu可能切走，但是切走了，其他线程判断一下也执行不了
             synchronized (obj){
                 if(num>0){
                     //-->1  -->2   -->3  -->4

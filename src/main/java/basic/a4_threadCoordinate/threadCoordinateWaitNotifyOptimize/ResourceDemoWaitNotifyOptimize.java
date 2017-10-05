@@ -17,8 +17,9 @@ class Resource{
 
     public synchronized void set(String name,String sex){
         if(this.fullflag){
-            try { this.wait(); } catch (InterruptedException e) { e.printStackTrace(); }
+            try { this.wait();} catch (InterruptedException e) { e.printStackTrace(); }
         }
+
 
         this.name = name;
         this.sex = sex;
@@ -31,7 +32,7 @@ class Resource{
         if(!this.fullflag){
             try { this.wait(); } catch (InterruptedException e) { e.printStackTrace(); }
         }
-        System.out.println("name=" + this.name + "  sex=" +  this.sex);
+        System.out.println("-----name=" + this.name + "  sex=" +  this.sex);
         this.fullflag=false;
         this.notify();
     }
@@ -70,6 +71,7 @@ class Output implements Runnable{
     public void run(){
         while(true){
             r.output();
+//            for(int i=0;i<1000000000l;i++){}
         }
     }
 }
