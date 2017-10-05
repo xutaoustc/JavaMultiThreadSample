@@ -1,4 +1,4 @@
-package basic.threadCoordinate.threadCoordinateWaitNotify;
+package basic.a4_threadCoordinate.threadCoordinateWaitNotify;
 
 
 

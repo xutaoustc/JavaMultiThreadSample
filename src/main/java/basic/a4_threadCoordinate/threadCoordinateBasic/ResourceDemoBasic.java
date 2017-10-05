@@ -1,4 +1,4 @@
-package basic.threadCoordinate.threadCoordinateBasic;
+package basic.a4_threadCoordinate.threadCoordinateBasic;
 
 
 

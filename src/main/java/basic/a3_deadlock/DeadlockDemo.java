@@ -1,4 +1,4 @@
-package basic.deadlock;
+package basic.a3_deadlock;
 
 
 class LockA{}

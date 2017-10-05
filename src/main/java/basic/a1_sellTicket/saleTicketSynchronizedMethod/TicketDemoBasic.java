@@ -1,4 +1,4 @@
-package basic.sellTicket.saleTicketSynchronizedMethod;
+package basic.a1_sellTicket.saleTicketSynchronizedMethod;
 
 
 class Ticket implements Runnable{

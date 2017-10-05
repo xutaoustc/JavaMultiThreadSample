@@ -1,4 +1,4 @@
-package basic.singletonInMultiThread;
+package basic.a2_singletonInMultiThread;
 
 class Singleton{
     private static Singleton s = null;

@@ -1,4 +1,4 @@
-package basic.sellTicket.saleTicketSynchronizedBlock;
+package basic.a1_sellTicket.saleTicketSynchronizedBlock;
 
 
 class Ticket implements Runnable{

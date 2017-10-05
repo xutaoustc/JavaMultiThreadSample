@@ -1,7 +1,11 @@
-package basic.threadCreate.runnable;
+package basic.a0_threadCreate.inherit;
 
 
-class Demo implements Runnable{
+class Demo extends Thread{
+    Demo(String name){
+        super(name);
+    }
+
     public void run(){
         for(int i=0;i<10;i++){
             for(int y=-9999999;y<999999999;y++){}
@@ -10,12 +14,10 @@ class Demo implements Runnable{
     }
 }
 
-public class CreateThreadImplementRunnable {
+public class CreateThreadThreadInherit {
     public static void main(String[]args){
-        Demo d = new Demo();
-
-        Thread t1 = new Thread(d,"旺财");
-        Thread t2 = new Thread(d,"xiaoqiang");
+        Thread t1 = new Demo("旺财");
+        Thread t2 = new Demo("xiaoqiang");
         t1.start();
         t2.start();
     }
