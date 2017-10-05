@@ -71,7 +71,6 @@ class Output implements Runnable{
     public void run(){
         while(true){
             r.output();
-//            for(int i=0;i<1000000000l;i++){}
         }
     }
 }
