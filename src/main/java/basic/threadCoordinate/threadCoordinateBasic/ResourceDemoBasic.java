@@ -1,4 +1,4 @@
-package basic.threadCoordinate;
+package basic.threadCoordinate.threadCoordinateBasic;
 
 
 

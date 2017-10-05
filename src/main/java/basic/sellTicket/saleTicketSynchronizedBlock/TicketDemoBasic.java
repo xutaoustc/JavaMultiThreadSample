@@ -12,7 +12,7 @@ class Ticket implements Runnable{
             //      需要被同步的代码
             // }
             //需要注意的是，使用obj这种机制，类似于是一种锁，进去了以后就把锁给上了，在里面sleep了也不会释放锁。只有出来了才会释放锁。
-            //类似于火车上的卫生间
+            //synchronized类似于火车上的卫生间
             synchronized (obj){
                 if(num>0){
                     //-->1  -->2   -->3  -->4
