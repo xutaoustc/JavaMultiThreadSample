@@ -1,4 +1,4 @@
-package basic.a4_threadCoordinate.producerConsumerError;
+package basic.a4_threadCoordinate.c1_producerConsumerError;
 
 
 //多生产者多消费者问题

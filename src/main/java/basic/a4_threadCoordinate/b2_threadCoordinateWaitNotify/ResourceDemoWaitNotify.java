@@ -1,4 +1,4 @@
-package basic.a4_threadCoordinate.threadCoordinateWaitNotifyOptimize;
+package basic.a4_threadCoordinate.b2_threadCoordinateWaitNotify;
 
 
 
@@ -14,28 +14,6 @@ class Resource{
     String name;
     String sex;
     boolean fullflag;
-
-    public synchronized void set(String name,String sex){
-        if(this.fullflag){
-            try { this.wait();} catch (InterruptedException e) { e.printStackTrace(); }
-        }
-
-
-        this.name = name;
-        this.sex = sex;
-
-        this.fullflag = true;
-        this.notify();
-    }
-
-    public synchronized void output(){
-        if(!this.fullflag){
-            try { this.wait(); } catch (InterruptedException e) { e.printStackTrace(); }
-        }
-        System.out.println("-----name=" + this.name + "  sex=" +  this.sex);
-        this.fullflag=false;
-        this.notify();
-    }
 }
 
 class Input implements Runnable{
@@ -49,13 +27,23 @@ class Input implements Runnable{
         int num = 0;
 
         while(true){
-            if(num==0){
-                r.set("mike","nan");
-            }
-            else{
-                r.set("Lily","女女女");
-            }
+            synchronized (r){
+                if(r.fullflag){
+                    try { r.wait(); } catch (InterruptedException e) { e.printStackTrace(); }
+                }
 
+                if(num==0){
+                    r.name = "Mike";
+                    r.sex = "Male";
+                }
+                else{
+                    r.name = "Lily";
+                    r.sex = "女女女";
+                }
+
+                r.fullflag = true;
+                r.notify();
+            }
             num= (num+1)%2;
         }
     }
@@ -70,14 +58,20 @@ class Output implements Runnable{
 
     public void run(){
         while(true){
-            r.output();
-//            for(int i=0;i<1000000000l;i++){}
+            synchronized (r){
+                if(!r.fullflag){
+                    try { r.wait(); } catch (InterruptedException e) { e.printStackTrace(); }
+                }
+                System.out.println("name=" + r.name + "  sex=" +  r.sex);
+                r.fullflag=false;
+                r.notify();
+            }
         }
     }
 }
 
 
-public class ResourceDemoWaitNotifyOptimize {
+public class ResourceDemoWaitNotify {
     public static void main(String[]args){
         Resource r = new Resource();
         Input in = new Input(r);

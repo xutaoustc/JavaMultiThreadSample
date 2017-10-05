@@ -1,4 +1,4 @@
-package basic.a4_threadCoordinate.producerConsumerError1;
+package basic.a4_threadCoordinate.c2_producerConsumerError1;
 
 
 //注意，在分析了ProducerConsumerError的问题后，我们觉得问题是由于在wait后，没有再次判断标记所引起的，所以我们把if改成了while
