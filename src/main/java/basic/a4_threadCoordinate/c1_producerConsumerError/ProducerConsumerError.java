@@ -19,7 +19,7 @@ class Resource{
         this.name = name + count;
         count++;
 
-        System.out.println("生产者" + this.name);
+        System.out.println(Thread.currentThread().getName() + "...生产者..." + this.name);
 
         this.fullflag = true;
         this.notify();
@@ -30,7 +30,7 @@ class Resource{
             try { this.wait(); } catch (InterruptedException e) { e.printStackTrace(); }
         }
 
-        System.out.println("。。。。。消费者" + this.name );
+        System.out.println(Thread.currentThread().getName() + "..........消费者..." + this.name );
 
         this.fullflag=false;
         this.notify();
