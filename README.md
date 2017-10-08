@@ -63,7 +63,7 @@ class Thread
 
 wait释放锁，sleep不释放锁
 
-注意，notify和notifyAll之后呢，所有的线程还是要抢锁的，类似于所有的线程同时start然后开始抢锁一样。
+注意，notify和notifyAll之后呢，所有的线程还是要抢锁的，并不存在不需要抢锁直接马上可以全部执行的现象，类似于所有的线程同时start然后开始抢锁一样。
 
 
 
