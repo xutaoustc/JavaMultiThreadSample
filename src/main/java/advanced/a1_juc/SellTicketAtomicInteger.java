@@ -3,29 +3,27 @@ package advanced.a1_juc;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-//用了AtomicInteger也不能保证完全的线程安全，还是要靠用法
 class Ticket implements Runnable {
-    private AtomicInteger num = new AtomicInteger(100);
+    public AtomicInteger num = new AtomicInteger(100000);
     public void run() {
-        while (true) {
+        for(;;){
             int ticket = num.get();
-
-            if (ticket > 0) {
-                //-->1  -->2   -->3  -->4
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }  // 强行模拟效果一波^_^
-
-                System.out.println(Thread.currentThread().getName() + "...sale...." + num.getAndDecrement());
+            int left = ticket-1;
+            if( ticket>0 && num.compareAndSet(ticket,left) ){
+                System.out.println("Thread" + Thread.currentThread().getId() + " sell ticket " + ticket);
+            }else{
+                if(ticket>0){
+                    continue;
+                }else{
+                    break;
+                }
             }
         }
     }
 }
 
 public class SellTicketAtomicInteger {
-    public static void main(String[]args){
+    public static void main(String[]args) throws InterruptedException {
         Ticket t = new Ticket();
 
         Thread t1 = new Thread(t);
@@ -37,5 +35,11 @@ public class SellTicketAtomicInteger {
         t2.start();
         t3.start();
         t4.start();
+
+
+        t1.join();
+        t2.join();
+
+        System.out.println(t.num.get());
     }
 }
