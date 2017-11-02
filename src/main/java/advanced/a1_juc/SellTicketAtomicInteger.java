@@ -8,8 +8,8 @@ class Ticket implements Runnable {
     public void run() {
         for(;;){
             int ticket = num.get();
-            int left = ticket-1;
-            if( ticket>0 && num.compareAndSet(ticket,left) ){
+
+            if( ticket>0 && num.compareAndSet(ticket,ticket-1) ){
                 System.out.println("Thread" + Thread.currentThread().getId() + " sell ticket " + ticket);
             }else{
                 if(ticket>0){
