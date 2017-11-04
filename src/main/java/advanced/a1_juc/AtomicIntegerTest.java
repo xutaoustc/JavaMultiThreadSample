@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 //    return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
 //}
 
+
 //public final int incrementAndGet() {
 //    return unsafe.getAndAddInt(this, valueOffset, 1) + 1;
 //}
@@ -19,6 +20,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 //    return var5;
 //}
 
+
+//  incrementAndGet->getAndAddInt->
+//                                  compareAndSwapInt
+//                  compareAndSet->
 
 public class AtomicIntegerTest {
     static class Domain implements  Runnable{

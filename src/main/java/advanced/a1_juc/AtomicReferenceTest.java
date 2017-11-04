@@ -3,13 +3,51 @@ package advanced.a1_juc;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
-
+//用法1
 //An atomic reference is ideal to use when you need to share and change the state of an immutable object
 //       between multiple threads. That is a super dense statement so I will break it down a bit.
 //First, an immutable object is an object that is effectively not changed after construction. Frequently an
 //       immutable object's methods return new instances of that same class. Some examples include the wrapper
 //       classes of Long and Double, as well as String, just to name a few. (According to Programming Concurrency
 //       on the JVM immutable objects are a critical part of modern concurrency).
+
+
+//用法2 ----  太经典    取  操作  判断是否撤销    三部曲
+//public class LinkedStack<T> {
+//
+//    AtomicReference<Node<T>> topOfStack=new AtomicReference<Node<T>>();
+//
+//    public T push(T e) {
+//        while(true) {
+//            Node<T> oldTop=topOfStack.get();
+//            Node<T> newTop=new Node<T>(e,oldTop);
+//            if (topOfStack.compareAndSet(oldTop, newTop)) break;
+//        }
+//        return e;
+//    }
+//
+//    public T pop() {
+//        while(true) {
+//            Node<T> oldTop=topOfStack.get();
+//            if (oldTop==null) throw new EmptyStackException();
+//            Node<T> newTop=oldTop.next;
+//            if (topOfStack.compareAndSet(oldTop, newTop)) return oldTop.object;
+//        }
+//    }
+//
+//    private static final class Node<T> {
+//        final T object;
+//        final Node<T> next;
+//
+//        private Node (T object, Node<T> next) {
+//            this.object=object;
+//            this.next=next;
+//        }
+//    }
+//  ...................
+//}
+
+
 
 //public final boolean compareAndSet(V expect, V update) {
 //    return unsafe.compareAndSwapObject(this, valueOffset, expect, update);
@@ -31,6 +69,7 @@ public class AtomicReferenceTest {
                         e.printStackTrace();
                     }
 
+                    //只能成功一个是它的精髓，实现和锁类似的效果
                     if(value.compareAndSet("abc","def")){
                         System.out.println("Thread"+Thread.currentThread().getId()+" change value to " + value.get());
                     }else{
