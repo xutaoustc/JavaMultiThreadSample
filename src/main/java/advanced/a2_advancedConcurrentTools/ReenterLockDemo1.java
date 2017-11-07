@@ -1,5 +1,7 @@
 package advanced.a2_advancedConcurrentTools;
 
+import advanced.a2_advancedConcurrentTools.deadlock.DeadlockChecker;
+
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ReenterLockDemo1 implements  Runnable{
@@ -28,5 +30,7 @@ public class ReenterLockDemo1 implements  Runnable{
         t1.start();t2.start();
         t1.join();t2.join();
         System.out.println(i);
+
+
     }
 }
