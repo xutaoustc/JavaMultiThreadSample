@@ -24,7 +24,7 @@ public class LockSupportDemo {
         public void run(){
             synchronized (u){
                 System.out.println("in " + getName());
-                LockSupport.park();
+                LockSupport.park();    //会响应中断，但是不会抛出中断异常，用Thread.interrupted()判断是否被中断
             }
         }
     }

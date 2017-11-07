@@ -1,4 +1,4 @@
-package advanced.a1_juc;
+package advanced.a1_noLock;
 
 
 import java.util.concurrent.atomic.AtomicStampedReference;
