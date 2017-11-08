@@ -1,4 +1,4 @@
-package advanced.pattern.jdkFuture;
+package advanced.a4_pattern.jdkFuture;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;

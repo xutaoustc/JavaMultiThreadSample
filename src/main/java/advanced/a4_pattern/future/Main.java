@@ -1,4 +1,4 @@
-package advanced.pattern.future;
+package advanced.a4_pattern.future;
 
 public class Main {
     public static void main(String[] args) {

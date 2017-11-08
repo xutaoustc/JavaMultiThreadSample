@@ -1,4 +1,4 @@
-package advanced.pattern.future;
+package advanced.a4_pattern.future;
 
 public class Client {
     public Data request(final String queryStr) {

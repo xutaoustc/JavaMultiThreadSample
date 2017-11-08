@@ -1,4 +1,4 @@
-package advanced.pattern.future;
+package advanced.a4_pattern.future;
 
 public class RealData implements Data {
     protected final String result;

@@ -1,4 +1,4 @@
-package advanced.pattern.future;
+package advanced.a4_pattern.future;
 
 public class FutureData implements Data {
     protected RealData realdata = null;   //FutureData是RealData的包装
