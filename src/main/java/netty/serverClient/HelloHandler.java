@@ -1,4 +1,4 @@
-package netty;
+package netty.serverClient;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;

@@ -1,4 +1,4 @@
-package netty;
+package netty.serverClient;
 
 import org.jboss.netty.channel.*;
 
